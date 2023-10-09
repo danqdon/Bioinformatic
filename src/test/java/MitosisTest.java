@@ -3,15 +3,13 @@ import CellCycle.Mitosis.*;
 import Deserializers.TxtDNADeserializer;
 import org.testng.annotations.Test;
 
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MitosisTest {
 
     @Test
-    public void name() {
+    public void shouldCreateTwoIdenticalDaughterCellsFromOne() {
         TxtDNADeserializer dnaDeserializer = new TxtDNADeserializer();
         DNAStrand dnaStrand = dnaDeserializer.deserialize("genome.txt");
 
