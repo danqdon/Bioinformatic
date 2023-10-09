@@ -1,6 +1,7 @@
 import Biomolecules.DNAStrand;
 import CellCycle.Mitosis.*;
 import Deserializers.TxtDNADeserializer;
+import Mitosis.*;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;

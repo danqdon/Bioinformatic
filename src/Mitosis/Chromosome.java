@@ -1,4 +1,4 @@
-package CellCycle.Mitosis;
+package Mitosis;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,7 @@ public class Chromosome {
     public Chromosome(Chromatid chromatid1, Chromatid chromatid2, int id) {
         chromatids.add(chromatid1);
         chromatids.add(chromatid2);
-        id = this.id;
+        this.id = id;
     }
     public void addChromatid(Chromatid chromatid) {
         if(chromatids.size() < 2) {

@@ -1,4 +1,4 @@
-package CellCycle.Mitosis;
+package Mitosis;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,10 +1,10 @@
-package CellCycle.Mitosis;
+package Mitosis;
 
 import Biomolecules.DNAStrand;
 
 public class Chromatid {
-    private DNAStrand dnaStrand;
-    private int id;
+    private final DNAStrand dnaStrand;
+    private final int id;
 
     public Chromatid(DNAStrand dnaStrand, int id) {
         this.dnaStrand = dnaStrand;

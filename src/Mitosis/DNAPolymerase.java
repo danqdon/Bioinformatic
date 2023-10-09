@@ -1,4 +1,4 @@
-package CellCycle.Mitosis;
+package Mitosis;
 import Biomolecules.Base;
 import Biomolecules.Codon;
 import Biomolecules.DNAStrand;
