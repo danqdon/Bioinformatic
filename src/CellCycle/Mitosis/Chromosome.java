@@ -1,7 +1,5 @@
 package CellCycle.Mitosis;
 
-import Biomolecules.DNAStrand;
-
 import java.util.ArrayList;
 import java.util.List;
 

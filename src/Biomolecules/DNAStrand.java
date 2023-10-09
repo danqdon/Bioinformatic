@@ -1,7 +1,5 @@
 package Biomolecules;
 
-import Biomolecules.Codon;
-
 import java.util.List;
 
 public class DNAStrand {

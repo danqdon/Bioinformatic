@@ -1,6 +1,5 @@
 package Biomolecules;
 
-import Biomolecules.DNAStrand;
 import CellCycle.Mitosis.*;
 import Deserializers.TxtDNADeserializer;
 import org.testng.annotations.Test;
@@ -26,19 +25,17 @@ public class MitosisTest {
         GenomeOrganizer organizer = new GenomeOrganizer();
         List<Chromatid> chromatidList = organizer.organizeIntoChromatids(dnaStrand);
         
-        // Convert single chromatids into chromosomes
+
         List<Chromosome> initialChromosomes = new ArrayList<>();
         for (Chromatid chromatid : chromatidList) {
             initialChromosomes.add(new Chromosome(chromatid, null, chromatid.getId()));
         }
 
-        // Create cell with single chromatid chromosomes
+
         Cell cell = new Cell(initialChromosomes);
 
-        // Replicate DNA and produce chromosomes with two chromatids inside the cell
         cell.replicateDNA();
 
-        // Divide the cell to produce two daughter cells
         Microtubule microtubule = new Microtubule();
         List<Cell> daughterCells = microtubule.divideCell(cell);
         Cell daughterCell1 = daughterCells.get(0);
