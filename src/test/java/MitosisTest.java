@@ -15,22 +15,16 @@ public class MitosisTest {
 
         GenomeOrganizer organizer = new GenomeOrganizer();
         List<Chromatid> chromatidList = organizer.organizeIntoChromatids(dnaStrand);
-
-        DNAPolymerase dnaPolymerase = new DNAPolymerase();
         List<Chromosome> chromosomes = new ArrayList<>();
-
-        for (Chromatid chromatid : chromatidList) {
-            DNAStrand complementaryStrand = dnaPolymerase.getComplementary(chromatid.getDna()); // Assuming Chromatid has a method getDNA()
-            Chromatid complementaryChromatid = new Chromatid(complementaryStrand, chromatid.getId()); // Assuming IDs are the same for complementary chromatids
-            chromosomes.add(new Chromosome(chromatid, complementaryChromatid, chromatid.getId()));
-        }
-
-        Cell cell = new Cell(chromosomes);
-        Microtubule microtubule = new Microtubule();
+        for (Chromatid chromatid : chromatidList)
+            chromosomes.add(new Chromosome(chromatid, chromatid.getId()));
+        DNAPolymerase dnaPolymerase = new DNAPolymerase();
+        Cell cell = new Cell(chromosomes, dnaPolymerase);
+        cell.replicateDNA();
+        Microtubule microtubule = new Microtubule(dnaPolymerase);
         List<Cell> daughterCells = microtubule.divideCell(cell);
         Cell daughterCell1 = daughterCells.get(0);
         Cell daughterCell2 = daughterCells.get(1);
-
     }
 
 

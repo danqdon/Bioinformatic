@@ -34,10 +34,6 @@ public class TxtDNADeserializer implements DNADeserializer {
         List<Codon> codons = new ArrayList<>();
         int length = dnaStrand.length() - dnaStrand.length() % 3;
 
-        if (length % 3 != 0) {
-            throw new IllegalArgumentException("DNA sequence length is not a multiple of 3. Incomplete codon detected.");
-        }
-
         for (int i = 0; i < length; i += 3) {
             if (i + 3 <= length) {
                 Base first = mapToBase(dnaStrand.charAt(i));

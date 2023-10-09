@@ -6,19 +6,21 @@ import java.util.List;
 
 public class Cell {
     List<Chromosome> karyotpye;
-    public Cell(List<Chromosome> karyotype){
+    DNAPolymerase dnaPolymerase;
+    public Cell(List<Chromosome> karyotype, DNAPolymerase dnaPolymerase){
+
         this.karyotpye = karyotype;
+        this.dnaPolymerase = dnaPolymerase;
     }
 
     public List<Chromosome> getKaryotpye() {
-        return karyotpye;
+        return this.karyotpye;
     }
 
     public void replicateDNA() {
-        DNAPolymerase dnaPolymerase = new DNAPolymerase();
-        for (Chromosome chromosome : karyotpye) {
-            DNAStrand complementaryStrand = dnaPolymerase.getComplementary(chromosome.getChromatid(1).getDna());
-            Chromatid complementaryChromatid = new Chromatid(complementaryStrand, chromosome.getChromatid(2).getId());
+        for (Chromosome chromosome : this.karyotpye) {
+            DNAStrand complementaryStrand = this.dnaPolymerase.getComplementary(chromosome.getChromatid(0).getDna());
+            Chromatid complementaryChromatid = new Chromatid(complementaryStrand, chromosome.getChromatid(0).getId());
             chromosome.addChromatid(complementaryChromatid);
         }
     }

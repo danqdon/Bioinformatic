@@ -27,6 +27,10 @@ public class Chromosome {
     }
 
     public Chromatid getChromatid(int index) {
-        return chromatids.get(index);
+        if (index < 0 || index >= chromatids.size()) {
+            throw new IndexOutOfBoundsException("Chromatid index " + index + " is out of bounds for chromosome " + this.id + " with " + chromatids.size() + " chromatids.");
+        }
+        return this.chromatids.get(index);
     }
+
 }

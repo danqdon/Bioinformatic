@@ -11,10 +11,12 @@ public class Chromatid {
         this.id = id;
     }
     public DNAStrand getDna() {
-        return dnaStrand;
+        return this.dnaStrand;
     }
 
     public int getId() {
-        return id;
+        return this.id;
     }
+
+
 }
