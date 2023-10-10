@@ -8,5 +8,8 @@ public class DNAStrand {
         this.codons = codons;
     }
 
+    public List<Codon> getCodons() {
+        return codons;
+    }
 }
 

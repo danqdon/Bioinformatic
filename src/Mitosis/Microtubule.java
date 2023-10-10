@@ -11,7 +11,7 @@ public class Microtubule {
     }
 
     public List<Cell> divideCell(Cell cell) {
-        List<Chromosome> originalChromosomes = cell.getKaryotpye();
+        List<Chromosome> originalChromosomes = cell.getKaryotype();
         List<Chromatid> chromatidsForCell1 = new ArrayList<>();
         List<Chromatid> chromatidsForCell2 = new ArrayList<>();
 

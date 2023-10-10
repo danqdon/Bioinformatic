@@ -13,7 +13,7 @@ public class Cell {
         this.dnaPolymerase = dnaPolymerase;
     }
 
-    public List<Chromosome> getKaryotpye() {
+    public List<Chromosome> getKaryotype() {
         return this.karyotpye;
     }
 

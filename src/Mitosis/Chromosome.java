@@ -33,4 +33,7 @@ public class Chromosome {
         return this.chromatids.get(index);
     }
 
+    public List<Chromatid> getChromatids() {
+        return chromatids;
+    }
 }
