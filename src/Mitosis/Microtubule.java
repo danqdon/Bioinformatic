@@ -4,10 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Microtubule {
-    private final DNAPolymerase dnaPolymerase;
 
-    public Microtubule(DNAPolymerase dnaPolymerase) {
-        this.dnaPolymerase = dnaPolymerase;
+    public Microtubule() {
     }
 
     public List<Cell> divideCell(Cell cell){

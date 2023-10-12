@@ -7,7 +7,7 @@ import java.util.stream.IntStream;
 
 public class TxtStringDeserializer {
 
-    public static String deserialize(String file) throws IOException {
+    public String deserialize(String file) throws IOException {
         String expected = Files.readString(Path.of(file)).toUpperCase();
 
         int length = expected.length();

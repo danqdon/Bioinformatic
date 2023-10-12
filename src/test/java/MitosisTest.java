@@ -31,7 +31,7 @@ public class MitosisTest {
         Cell cell = new Cell(karyotypeElements, dnaPolymerase, dnaLigase);
         StringCellSerializer genomeSerializer = new StringCellSerializer();
         cell = cell.getDnaLigase().replicate(cell);
-        Microtubule microtubule = new Microtubule(dnaPolymerase);
+        Microtubule microtubule = new Microtubule();
         List<Cell> daughterCells = microtubule.divideCell(cell);
         Cell daughterCell1 = daughterCells.get(0);
         Cell daughterCell2 = daughterCells.get(1);
