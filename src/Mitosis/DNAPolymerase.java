@@ -16,7 +16,8 @@ public class DNAPolymerase{
             Base.GUANINE, Base.CYTOSINE
     );
 
-    public DNAStrand getComplementary(DNAStrand dnaStrand) {
+    public Chromatid getComplementary(Chromatid chromatid) {
+        DNAStrand dnaStrand = chromatid.getDna();
         List<Codon> originalCodons = dnaStrand.codons;
         List<Codon> complementaryCodons = new ArrayList<>();
 
@@ -29,6 +30,10 @@ public class DNAPolymerase{
             complementaryCodons.add(complementaryCodon);
         }
 
-        return new DNAStrand(complementaryCodons);
+        DNAStrand complementaryDnaStrand = new DNAStrand(complementaryCodons);
+
+        return new Chromatid(complementaryDnaStrand, chromatid.getId());
     }
+
+
 }

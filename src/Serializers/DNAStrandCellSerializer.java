@@ -5,6 +5,7 @@ import Mitosis.Cell;
 import Mitosis.Chromatid;
 import Mitosis.Chromosome;
 import Biomolecules.Base;
+import Mitosis.KaryotypeElement;
 
 import java.util.List;
 
@@ -12,7 +13,8 @@ public class DNAStrandCellSerializer {
     public String serialize(Cell cell) {
         StringBuilder genome = new StringBuilder();
 
-        for (Chromosome chromosome : cell.getKaryotype()) {
+        for (KaryotypeElement element : cell.getKaryotype()) {
+            Chromosome chromosome = element.getChromosome(0);
             for (Chromatid chromatid : chromosome.getChromatids()) {
                 List<Codon> strand = chromatid.getDna().getCodons();
                 for (Codon codon : strand) {
@@ -25,6 +27,7 @@ public class DNAStrandCellSerializer {
 
         return genome.toString();
     }
+
 
     private char baseToChar(Base base) {
         switch (base) {

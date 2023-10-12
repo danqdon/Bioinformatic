@@ -36,4 +36,8 @@ public class Chromosome {
     public List<Chromatid> getChromatids() {
         return chromatids;
     }
+
+    public int getId() {
+        return id;
+    }
 }

@@ -22,18 +22,21 @@ public class MitosisTest {
         GenomeOrganizer organizer = new GenomeOrganizer();
         List<Chromatid> chromatidList = organizer.organizeIntoChromatids(dnaStrand);
         DNAPolymerase dnaPolymerase = new DNAPolymerase();
-        //TODO añadir cromatida complementaria y luego meter ambas en el cromosoma
+        List<KaryotypeElement> karyotypeElements = new ArrayList<>();
         List<Chromosome> chromosomes = new ArrayList<>();
-        for (Chromatid chromatid : chromatidList)
-            chromosomes.add(new Chromosome(chromatid, chromatid.getId()));
-
-        Cell cell = new Cell(chromosomes, dnaPolymerase); //TODO adaptar la clase para que admita que un cariotipo
-                                                          // tenga un par de cromosomas por elemento
-        cell.replicateDNA(); //TODO cambiar el replicate para que duplique en 2 cromosomas, y no haga complementario
-        Microtubule microtubule = new Microtubule(dnaPolymerase);
-        List<Cell> daughterCells = microtubule.divideCell(cell); //TODO separa cada elemento del cariotipo y crea dos celulas con cromosomas individuales
-        Cell daughterCell1 = daughterCells.get(0);
-        Cell daughterCell2 = daughterCells.get(1);
+        for (Chromatid chromatid : chromatidList) {
+            Chromatid complementaryChromatid = new Chromatid(dnaPolymerase.getComplementary(chromatid).getDna(), chromatid.getId());
+            Chromosome chromosome = new Chromosome(chromatid, complementaryChromatid, chromatid.getId());
+            chromosomes.add(chromosome);
+            karyotypeElements.add(new KaryotypeElement(chromosome,chromosome.getId()));
+        }
+        DNALigase dnaLigase = new DNALigase(dnaPolymerase);
+        Cell cell = new Cell(karyotypeElements, dnaPolymerase, dnaLigase);
+        cell = cell.getDnaLigase().replicate(cell);
+        //Microtubule microtubule = new Microtubule(dnaPolymerase);
+        //List<Cell> daughterCells = microtubule.divideCell(cell); //TODO separa cada elemento del cariotipo y crea dos celulas con cromosomas individuales
+        //Cell daughterCell1 = daughterCells.get(0);
+        //Cell daughterCell2 = daughterCells.get(1);
         DNAStrandCellSerializer genomeSerializer = new DNAStrandCellSerializer();
         assertThat(genomeSerializer.serialize(cell)).isEqualTo(Files.readString(Path.of("genome.txt")).toUpperCase());
     }

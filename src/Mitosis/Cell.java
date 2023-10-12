@@ -1,27 +1,27 @@
 package Mitosis;
 
-import Biomolecules.DNAStrand;
-
 import java.util.List;
 
 public class Cell {
-    List<Chromosome> karyotpye;
-    DNAPolymerase dnaPolymerase;
-    public Cell(List<Chromosome> karyotype, DNAPolymerase dnaPolymerase){
+    List<KaryotypeElement> karyotpye;
+    private final DNAPolymerase dnaPolymerase;
+    private final DNALigase dnaLigase;
 
+    public Cell(List<KaryotypeElement> karyotype, DNAPolymerase dnaPolymerase, DNALigase dnaLigase){
         this.karyotpye = karyotype;
         this.dnaPolymerase = dnaPolymerase;
+        this.dnaLigase = dnaLigase;
     }
 
-    public List<Chromosome> getKaryotype() {
+    public List<KaryotypeElement> getKaryotype() {
         return this.karyotpye;
     }
 
-    public void replicateDNA() {
-        for (Chromosome chromosome : this.karyotpye) {
-            DNAStrand complementaryStrand = this.dnaPolymerase.getComplementary(chromosome.getChromatid(0).getDna());
-            Chromatid complementaryChromatid = new Chromatid(complementaryStrand, chromosome.getChromatid(0).getId());
-            chromosome.addChromatid(complementaryChromatid);
-        }
+    public DNAPolymerase getDnaPolymerase() {
+        return dnaPolymerase;
+    }
+
+    public DNALigase getDnaLigase() {
+        return dnaLigase;
     }
 }

@@ -10,8 +10,8 @@ public class Microtubule {
         this.dnaPolymerase = dnaPolymerase;
     }
 
-    public List<Cell> divideCell(Cell cell) {
-        List<Chromosome> originalChromosomes = cell.getKaryotype();
+    /*public List<Cell> divideCell(Cell cell) {
+        List<KaryotypeElement> originalChromosomes = cell.getKaryotype();
         List<Chromatid> chromatidsForCell1 = new ArrayList<>();
         List<Chromatid> chromatidsForCell2 = new ArrayList<>();
 
@@ -21,8 +21,8 @@ public class Microtubule {
             chromatidsForCell2.add(chromosome.getChromatid(1));
         }
 
-        Cell daughterCell1 = new Cell(chromatidsToChromosomes(chromatidsForCell1), this.dnaPolymerase);
-        Cell daughterCell2 = new Cell(chromatidsToChromosomes(chromatidsForCell2), this.dnaPolymerase);
+        Cell daughterCell1 = new Cell(chromatidsToChromosomes(chromatidsForCell1), this.dnaPolymerase, dnaLigase);
+        Cell daughterCell2 = new Cell(chromatidsToChromosomes(chromatidsForCell2), this.dnaPolymerase, dnaLigase);
 
         List<Cell> daughterCells = new ArrayList<>();
         daughterCells.add(daughterCell1);
@@ -38,4 +38,6 @@ public class Microtubule {
         }
         return chromosomes;
     }
+    */
+
 }
