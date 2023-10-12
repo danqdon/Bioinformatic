@@ -9,7 +9,7 @@ import Mitosis.KaryotypeElement;
 
 import java.util.List;
 
-public class TxtCellSerializer {
+public class StringCellSerializer {
     public String serialize(Cell cell) {
         StringBuilder genome = new StringBuilder();
 

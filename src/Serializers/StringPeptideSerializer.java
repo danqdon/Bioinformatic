@@ -4,7 +4,7 @@ import ProteinSynthesis.Aminoacid;
 import ProteinSynthesis.Peptide;
 import ProteinSynthesis.PeptideSerializer;
 
-public class TxtPeptideSerializer implements PeptideSerializer {
+public class StringPeptideSerializer implements PeptideSerializer {
     @Override
     public String serialize(Peptide peptide) {
         StringBuilder sb = new StringBuilder();

@@ -4,7 +4,7 @@ import Biomolecules.Codon;
 import Biomolecules.DNAStrand;
 import ProteinSynthesis.DNASerializer;
 
-public class TxtDNASerializer implements DNASerializer {
+public class StringDNASerializer implements DNASerializer {
 
     public String serialize(DNAStrand dnaStrand) {
         StringBuilder sb = new StringBuilder();

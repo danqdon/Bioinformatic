@@ -1,9 +1,9 @@
 import Biomolecules.DNAStrand;
 import ProteinSynthesis.Exceptions.GeneSequenceNotFoundException;
 import ProteinSynthesis.*;
-import Serializers.TxtDNASerializer;
-import Serializers.TxtPeptideSerializer;
-import Serializers.TxtRNASerializer;
+import Serializers.StringDNASerializer;
+import Serializers.StringPeptideSerializer;
+import Serializers.StringRNASerializer;
 import Deserializers.TxtDNADeserializer;
 import org.junit.Test;
 
@@ -26,15 +26,15 @@ public class ProteinSynthesisTest {
         DNAStrand gene = dnaDeserializer.deserialize(sampleGeneStrand);
         GeneLocator locator = new GeneLocator(genome);
         DNAStrand dnaStrand = locator.locate(gene);
-        TxtDNASerializer dnaSerializer = new TxtDNASerializer();
+        StringDNASerializer dnaSerializer = new StringDNASerializer();
 
         RNAPolymerase polymerase = new RNAPolymerase();
         MessengerRNA messengerRnaStrand = polymerase.transcription(dnaStrand);
-        TxtRNASerializer rnaSerializer = new TxtRNASerializer();
+        StringRNASerializer rnaSerializer = new StringRNASerializer();
 
         Ribosome ribosome = new Ribosome();
         Peptide peptidicChain = ribosome.translate(messengerRnaStrand);
-        TxtPeptideSerializer peptideSerializer = new TxtPeptideSerializer();
+        StringPeptideSerializer peptideSerializer = new StringPeptideSerializer();
 
         System.out.println("DNA Strand: " + dnaSerializer.serialize(dnaStrand));
         System.out.println("Genome: " + dnaSerializer.serialize(genome));
