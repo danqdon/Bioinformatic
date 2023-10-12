@@ -11,13 +11,13 @@ public class GenomeOrganizer {
         List<Chromatid> chromatidArray = new ArrayList<>(numberOfChromosomes);
         int chromatidSize = dnaStrand.codons.size() / numberOfChromosomes;
         System.out.println(chromatidSize);
-        int counter = 0;
         for (int i = 0; i < numberOfChromosomes; i++) {
             int chromatidStart = i * chromatidSize;
             int chromatidEnd = chromatidStart + chromatidSize;
             DNAStrand strand = new DNAStrand(dnaStrand.codons.subList(chromatidStart, chromatidEnd));
             Chromatid chromatid = new Chromatid(strand, i);
             chromatidArray.add(chromatid);
+            }
             return chromatidArray;
         }
     }
