@@ -19,7 +19,7 @@ public class DNALigase {
             Chromatid chromatid1Complementary = polymerase.getComplementary(chromatid1);
             Chromatid chromatid2Complementary = polymerase.getComplementary(chromatid2);
             Chromosome chromosome1 = new Chromosome(chromatid1,chromatid1Complementary, chromatid1.getId());
-            Chromosome chromosome2 = new Chromosome(chromatid2,chromatid2Complementary, chromatid2.getId());
+            Chromosome chromosome2 = new Chromosome(chromatid2Complementary, chromatid2, chromatid2.getId());
             replicatedKaryotype.add(new KaryotypeElement(chromosome1,chromosome2,chromosome1.getId()));
         }
         return new Cell(replicatedKaryotype, cell.getDnaPolymerase(), cell.getDnaLigase());

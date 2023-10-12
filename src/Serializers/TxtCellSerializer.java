@@ -1,27 +1,27 @@
 package Serializers;
 
+import Biomolecules.Base;
 import Biomolecules.Codon;
 import Mitosis.Cell;
 import Mitosis.Chromatid;
 import Mitosis.Chromosome;
-import Biomolecules.Base;
 import Mitosis.KaryotypeElement;
 
 import java.util.List;
 
-public class DNAStrandCellSerializer {
+public class TxtCellSerializer {
     public String serialize(Cell cell) {
         StringBuilder genome = new StringBuilder();
 
         for (KaryotypeElement element : cell.getKaryotype()) {
             Chromosome chromosome = element.getChromosome(0);
-            for (Chromatid chromatid : chromosome.getChromatids()) {
-                List<Codon> strand = chromatid.getDna().getCodons();
-                for (Codon codon : strand) {
-                    genome.append(baseToChar(codon.getFirstBase()));
-                    genome.append(baseToChar(codon.getSecondBase()));
-                    genome.append(baseToChar(codon.getThirdBase()));
-                }
+            Chromosome chromosome2 = element.getChromosome(1);
+            Chromatid chromatid = chromosome.getChromatid(0);
+            List<Codon> strand = chromatid.getDna().getCodons();
+            for (Codon codon : strand) {
+                genome.append(baseToChar(codon.getFirstBase()));
+                genome.append(baseToChar(codon.getSecondBase()));
+                genome.append(baseToChar(codon.getThirdBase()));
             }
         }
 
