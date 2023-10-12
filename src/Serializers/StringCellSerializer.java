@@ -15,7 +15,6 @@ public class StringCellSerializer {
 
         for (KaryotypeElement element : cell.getKaryotype()) {
             Chromosome chromosome = element.getChromosome(0);
-            Chromosome chromosome2 = element.getChromosome(1);
             Chromatid chromatid = chromosome.getChromatid(0);
             List<Codon> strand = chromatid.getDna().getCodons();
             for (Codon codon : strand) {

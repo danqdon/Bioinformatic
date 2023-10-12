@@ -10,34 +10,18 @@ public class Microtubule {
         this.dnaPolymerase = dnaPolymerase;
     }
 
-    /*public List<Cell> divideCell(Cell cell) {
-        List<KaryotypeElement> originalChromosomes = cell.getKaryotype();
-        List<Chromatid> chromatidsForCell1 = new ArrayList<>();
-        List<Chromatid> chromatidsForCell2 = new ArrayList<>();
-
-
-        for (Chromosome chromosome : originalChromosomes) {
-            chromatidsForCell1.add(chromosome.getChromatid(0));
-            chromatidsForCell2.add(chromosome.getChromatid(1));
-        }
-
-        Cell daughterCell1 = new Cell(chromatidsToChromosomes(chromatidsForCell1), this.dnaPolymerase, dnaLigase);
-        Cell daughterCell2 = new Cell(chromatidsToChromosomes(chromatidsForCell2), this.dnaPolymerase, dnaLigase);
-
+    public List<Cell> divideCell(Cell cell){
         List<Cell> daughterCells = new ArrayList<>();
-        daughterCells.add(daughterCell1);
-        daughterCells.add(daughterCell2);
-
+        List<KaryotypeElement> karyotypeCell1 = new ArrayList<>();
+        List<KaryotypeElement> karyotypeCell2 = new ArrayList<>();
+        for(KaryotypeElement element: cell.getKaryotype()){
+            karyotypeCell1.add(new KaryotypeElement(element.getChromosome(0),element.getChromosome(0).getId()));
+            karyotypeCell2.add(new KaryotypeElement(element.getChromosome(1),element.getChromosome(1).getId()));
+        }
+        Cell daughter1 = new Cell(karyotypeCell1,cell.getDnaPolymerase(),cell.getDnaLigase());
+        daughterCells.add(daughter1);
+        Cell daughter2 = new Cell(karyotypeCell2,cell.getDnaPolymerase(),cell.getDnaLigase());
+        daughterCells.add(daughter2);
         return daughterCells;
     }
-
-    private List<Chromosome> chromatidsToChromosomes(List<Chromatid> chromatids) {
-        List<Chromosome> chromosomes = new ArrayList<>();
-        for (Chromatid chromatid : chromatids) {
-            chromosomes.add(new Chromosome(chromatid, null, chromatid.getId())); // Assuming the Chromosome constructor can handle a null chromatid
-        }
-        return chromosomes;
-    }
-    */
-
 }
