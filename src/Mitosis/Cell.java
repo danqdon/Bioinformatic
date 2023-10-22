@@ -24,4 +24,5 @@ public class Cell {
     public DNALigase getDnaLigase() {
         return dnaLigase;
     }
+
 }
