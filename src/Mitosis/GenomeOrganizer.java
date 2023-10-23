@@ -10,7 +10,6 @@ public class GenomeOrganizer {
         int numberOfChromosomes = 23;
         List<Chromatid> chromatidArray = new ArrayList<>(numberOfChromosomes);
         int chromatidSize = dnaStrand.codons.size() / numberOfChromosomes;
-        System.out.println(chromatidSize);
         for (int i = 0; i < numberOfChromosomes; i++) {
             int chromatidStart = i * chromatidSize;
             int chromatidEnd = chromatidStart + chromatidSize;

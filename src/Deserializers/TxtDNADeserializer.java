@@ -33,7 +33,6 @@ public class TxtDNADeserializer implements DNADeserializer {
         String dnaStrand = readGenomeFromFile(file);
         List<Codon> codons = new ArrayList<>();
         int length = dnaStrand.length() - dnaStrand.length() % 3;
-        System.out.println(length);
 
         for (int i = 0; i < length; i += 3) {
             if (i + 3 <= length) {
